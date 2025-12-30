@@ -7,48 +7,51 @@ public class atividade_2 {
         Scanner sc1 = new Scanner(System.in);
         double vidaJ1 = 100;
         double vidaJ2 = 150;
-        String nome;
+        String nomeJ1;
+        String nomeJ2;
 
         class Jogador {
             private double vida;
             private String nome;
 
             public Jogador(String arg_nome, double arg_vida){
-                try{ 
-                    if (arg_nome == null || arg_nome.isBlank())
-                        throw new IllegalArgumentException();
-                    
-                    this.nome = arg_nome;
-                    this.vida = arg_vida;
-                    
-                } catch (Exception IllegalArgumentException) {
-                    System.out.println("Digite um nome válido!");
-                }
 
-                
+                this.nome = arg_nome;
+                this.vida = arg_vida;
+                    
             }
             
-            public void printar_nome(String arg, double arg1){
-                System.out.println("Nome do jogador: "+nome);
-                System.out.println("Vida do jogador: "+vida);
+            public void printar_nome(){
+                System.out.println("Nome do jogador: "+this.nome);
+                System.out.println("Vida do jogador: "+this.vida);
             }
 
         }
         while(true){
-            System.out.print("Digite o nome do jogador 1: ");
-            nome = sc1.nextLine();
-            Jogador j1 = new Jogador(nome, vidaJ1);
+            try{
+                System.out.print("Digite o nome do jogador 1: ");
+                nomeJ1 = sc1.nextLine();
 
-            System.out.print("Digite o nome do jogador 2: ");
-            nome = sc1.nextLine();
-            Jogador j2 = new Jogador(nome, vidaJ2);
+                if (nomeJ1 == null || nomeJ1.isBlank())
+                    throw new IllegalArgumentException();
+                
+                System.out.print("Digite o nome do jogador 2: ");
+                nomeJ2 = sc1.nextLine();
+    
+                if (nomeJ2 == null || nomeJ2.isBlank())
+                    throw new IllegalArgumentException();
 
-            if (j2.nome == null || j2.nome.isBlank() || j1.nome == null || j1.nome.isBlank())
+                Jogador j1 = new Jogador(nomeJ1, vidaJ1);
+                Jogador j2 = new Jogador(nomeJ2, vidaJ2);
+
+                j1.printar_nome();
+                j2.printar_nome();
+                
+            } catch (Exception IllegalArgumentException){
+                System.out.println("Digite um nome válido!");
                 continue;
-
-            j1.printar_nome(j1.nome, j1.vida);
-            j2.printar_nome(j1.nome, j1.vida);
-
+            }
+            
             break;
         }
 
