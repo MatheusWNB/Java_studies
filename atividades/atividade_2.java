@@ -3,6 +3,23 @@ package atividades;
 import java.util.Scanner;
 
 public class atividade_2 {
+    static class Jogador {
+        private double vida;
+        private String nome;
+
+        public Jogador(String arg_nome, double arg_vida){
+
+            this.nome = arg_nome;
+            this.vida = arg_vida;
+                
+        }
+        
+        public void printar_nome(){
+            System.out.println("Nome do jogador: "+this.nome);
+            System.out.println("Vida do jogador: "+this.vida);
+        }
+
+    }
     public static void main(String[] args) {
         Scanner sc1 = new Scanner(System.in);
         double vidaJ1 = 100;
@@ -10,23 +27,6 @@ public class atividade_2 {
         String nomeJ1;
         String nomeJ2;
 
-        class Jogador {
-            private double vida;
-            private String nome;
-
-            public Jogador(String arg_nome, double arg_vida){
-
-                this.nome = arg_nome;
-                this.vida = arg_vida;
-                    
-            }
-            
-            public void printar_nome(){
-                System.out.println("Nome do jogador: "+this.nome);
-                System.out.println("Vida do jogador: "+this.vida);
-            }
-
-        }
         while(true){
             try{
                 System.out.print("Digite o nome do jogador 1: ");
